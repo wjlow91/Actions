@@ -8,3 +8,6 @@ jobs:
     steps:
       - name: Hello World
         run: echo "Pie"
+      - name: Hello World 2
+        run: echo "Pie 2"
+
