@@ -1,0 +1,10 @@
+name: Hello World Dispath
+on:
+  workflow_dispatch:
+jobs:
+  print-tag:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Hello World
+        run: echo "Hello Dispatch"
