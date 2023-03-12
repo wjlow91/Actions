@@ -1,0 +1,14 @@
+name: PS Test
+on:
+  workflow_dispatch:
+jobs:
+  print-tag:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: PS Test
+        run: echo "Test for PS"
+      - name: Perform a PS test from the PSTest.ps1 file
+        shell: pwsh
+        run: |
+          Invoke-Pester PSTest.ps1 -Passthru
