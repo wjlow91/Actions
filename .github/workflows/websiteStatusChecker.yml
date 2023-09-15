@@ -1,14 +1,14 @@
 name: website-status-check
 
 trigger:
-- recurrence:
+  recurrence:
     frequency: Minute
     interval: 5
 
 jobs:
-- job: website-check-job
+  job: website-check-job
   steps:
-  - powershell: |
+    powershell: |
       $url = "https://iac.jsf.mil"
       $expectedStatusCode = 403
 
@@ -26,7 +26,7 @@ jobs:
       }
     displayName: 'Check Website Status'
     continueOnError: true # Continue to next step even if there's an error
-  - powershell: |
+    powershell: |
       # Your PowerShell script to dispatch the status code or take further actions goes here
       # Example: Send an email or trigger an alert
 
