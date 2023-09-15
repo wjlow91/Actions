@@ -5,7 +5,7 @@ on:
     - cron: '0/5 * * * *'
 
 jobs: 
-     website-check-job:
+     website-status-check:
      steps:
        powershell: |
          $url = "https://iac.jsf.mil"
