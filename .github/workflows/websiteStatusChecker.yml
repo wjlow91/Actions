@@ -4,7 +4,7 @@ on:
   schedule:
     - cron: '0/5 * * * *'
 
-    jobs: 
+jobs: 
      website-check-job:
      steps:
        powershell: |
@@ -20,15 +20,9 @@ on:
             } else {
                 Write-Error "Website returned an unexpected status code: $statusCode"
             }
-        } catch {
+         } catch {
             Write-Error "An error occurred while checking the website: $_.Exception.Message"
-        }
-      displayName: 'Check Website Status'
-      continueOnError: true # Continue to next step even if there's an error
-      powershell: |
-        # Your PowerShell script to dispatch the status code or take further actions goes here
-        # Example: Send an email or trigger an alert
-
-      displayName: 'Dispatch Status Code'
-      condition: succeeded() # Only run this step if the previous step succeeded
-
+         }
+       displayName: 'Check Website Status'
+       continueOnError: true # Continue to next step even if there's an error
+       condition: succeeded() # Only run this step if the previous step succeeded
