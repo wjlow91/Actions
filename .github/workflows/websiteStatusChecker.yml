@@ -1,18 +1,19 @@
 name: website-status-check
 
-trigger:
-  recurrence:
-    frequency: Minute
-    interval: 5
+on:
+  trigger:
+   recurrence:
+      frequency: Minute
+      interval: 5
 
-  jobs: 
-    website-check-job:
-    steps:
-      powershell: |
-        $url = "https://iac.jsf.mil"
-        $expectedStatusCode = 403
+    jobs: 
+     website-check-job:
+     steps:
+       powershell: |
+         $url = "https://iac.jsf.mil"
+          $expectedStatusCode = 403
 
-        try {
+         try {
             $response = Invoke-WebRequest -Uri $url -Method Get
             $statusCode = $response.StatusCode
 
