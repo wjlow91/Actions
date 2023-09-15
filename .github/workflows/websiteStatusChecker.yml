@@ -1,13 +1,19 @@
 name: website-status-check
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: '0/5 * * * *'
 
 jobs: 
-     website-status-check:
-     steps:
-       powershell: |
+  website-status-check:
+   name: Website Status Check
+   runs-on: ubuntu-latest
+   steps:
+    - uses: actions/checkout@v3
+    - name: Install from PSGallery
+      shell: pwsh
+      run: |
          $url = "https://iac.jsf.mil"
           $expectedStatusCode = 403
 
@@ -23,6 +29,3 @@ jobs:
          } catch {
             Write-Error "An error occurred while checking the website: $_.Exception.Message"
          }
-       displayName: 'Check Website Status'
-       continueOnError: true # Continue to next step even if there's an error
-       condition: succeeded() # Only run this step if the previous step succeeded
