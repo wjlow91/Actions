@@ -2,8 +2,8 @@
 on:
   workflow_dispatch:
   script: |
-    $url = "https://example.com"
-    $expectedStatusCode = 200
+    $url = "https://iac.jsf.mil"
+    $expectedStatusCode = 403
     
     try {
         $response = Invoke-WebRequest -Uri $url -Method Get
