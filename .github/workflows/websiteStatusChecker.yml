@@ -5,7 +5,6 @@ trigger:
     frequency: Minute
     interval: 5
 
-jobs:
   job: website-check-job
   steps:
     powershell: |
