@@ -1,4 +1,4 @@
-- name: Check Website Status
+name: Check Website Status
 on:
   workflow_dispatch:
   script: |
